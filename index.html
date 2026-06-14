@@ -41,7 +41,7 @@
   .progress>span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ffb04d,#ff7e4d);transition:width .35s}
   .pstep{margin-top:8px;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.78);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.85)}
   .tline{margin-top:12px;height:4px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden}
-  .tline>span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ffb04d,#ff7e4d);transition:width .85s cubic-bezier(.45,.05,.25,1)}
+  .tline>span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ffb04d,#ff7e4d);transition:width .9s linear;will-change:width}
   .topic{display:flex;align-items:center;gap:12px;background:rgba(18,8,14,.7);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:11px 13px;margin-bottom:9px;font-size:14.5px;line-height:1.35;color:rgba(255,255,255,.92)}
   .topic .tic{width:34px;height:34px;flex:none;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(255,176,77,.18);color:#ffc56b;font-size:18px}
   .topic b{font-weight:700;color:#fff}
@@ -159,6 +159,10 @@
   .when b{display:block;color:#fff;font-size:14.5px;letter-spacing:.01em}
   .when span{color:rgba(255,255,255,.7);font-size:12.5px}
   @keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(226,75,74,.55)}50%{box-shadow:0 0 0 12px rgba(226,75,74,0)}}
+  @keyframes pulseAmber{0%,100%{box-shadow:0 14px 28px -10px rgba(255,126,45,.6),0 0 0 0 rgba(255,158,77,.55)}50%{box-shadow:0 14px 28px -10px rgba(255,126,45,.6),0 0 0 14px rgba(255,158,77,0)}}
+  @keyframes pulseGreen{0%,100%{box-shadow:0 14px 28px -10px rgba(95,208,138,.5),0 0 0 0 rgba(123,224,163,.55)}50%{box-shadow:0 14px 28px -10px rgba(95,208,138,.5),0 0 0 14px rgba(123,224,163,0)}}
+  .cta.pulse{animation:pulseAmber 2s ease-out infinite}
+  .cta.green{background:linear-gradient(180deg,#7be0a3,#3fb87a);color:#0a3b1a;box-shadow:0 14px 28px -10px rgba(95,208,138,.5);animation:pulseGreen 2s ease-out infinite}
   @keyframes blinkDot{0%,49%{opacity:1}50%,100%{opacity:.15}}
   @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @keyframes ringSpin{to{transform:rotate(360deg)}}
@@ -275,7 +279,7 @@ t8:function(){var a=ARCH[S.archetype];return brand()+
  '<p class="rtxt" style="margin:14px auto 0;max-width:32ch">Tem gente que entra numa noite dessas e não aguenta o ritmo. E pelas suas respostas <b style="color:#ffc56b">não é seu caso</b> — você tem o perfil ideal pra esse novo formato de evento.</p>'+
  '</div>'+
  '<div class="spacer"></div>'+
- '<button class="cta" onclick="qzGo(\'t9\')">Veja seu perfil <i class="ti ti-arrow-right"></i></button>';},
+ '<button class="cta pulse" onclick="qzGo(\'t9\')">Veja seu perfil <i class="ti ti-arrow-right"></i></button>';},
 
 t9:function(){var a=ARCH[S.archetype];return brand()+
  '<div style="text-align:center;margin-top:24px">'+
@@ -347,7 +351,7 @@ t11:function(){return bartopR()+
 t11map:function(){var stops=[
   ['ti-glass-full','19h · O esquenta','Bar abre, você chega com a galera e aproveita as bebidas trincando, geladinhas'],
   ['ti-microphone-2','20h · Começa o show','As luzes baixam e começa: Em Busca do Match Perfeito'],
-  ['ti-users','21h · Começa o quadro Plateia Viva','Pessoas da plateia viram personagem da noite — histórias que só acontecem lá'],
+  ['ti-users','21h · Começa o quadro Plateia Viva','Pessoas da plateia viram personagens da noite — pode ser até a sua galera'],
   ['ti-lock','21h30 · Momento Secreto','Piadas e momentos criados na hora — só estando lá pra saber qual é'],
   ['ti-gift','22h · Sorteio de brindes','Baldinhos de cerveja, porções e brindes — só pra quem está lá'],
   ['ti-camera','22h30 · Encerramento','Em Busca do Match Perfeito termina, fotos com a galera — e a casa continua aberta'],
@@ -373,9 +377,9 @@ t12:function(){return brand()+
  '<div class="giftpop" style="text-align:center;margin-bottom:8px"><i class="ti ti-gift" style="font-size:84px;color:#7be0a3"></i></div>'+
  '<h1 class="big" style="text-align:center;font-size:48px;margin-bottom:2px">Parabéns!</h1>'+
  '<p class="rtxt" style="text-align:center;color:#fff;font-weight:700;font-size:18px;margin-bottom:10px">Você desbloqueou um presente.</p>'+
- '<p class="rtxt" style="text-align:center">Por concluir a análise do seu perfil, liberamos um vale de <b>R$40</b> pra você conhecer a <b>nova noite de comédia de 2026</b> — a Plateia Viva. Leve seus amigos e venha com <b>R$40 de desconto</b>.</p>'+
+ '<p class="rtxt" style="text-align:center">Por concluir a análise do seu perfil, liberamos um vale de <b>R$40</b> pra você conhecer a <b>nova noite de comédia de 2026</b> — a Plateia Viva no <i>Em Busca do Match Perfeito</i>. Leve seus amigos e venha com <b>R$40 de desconto</b>.</p>'+
  '<div class="spacer"></div>'+
- '<button class="cta" onclick="qzGo(\'venda\')">Toque aqui e desbloqueie seu desconto <i class="ti ti-arrow-right"></i></button>'+
+ '<button class="cta green" onclick="qzGo(\'venda\')">Toque aqui e desbloqueie seu desconto <i class="ti ti-arrow-right"></i></button>'+
  '<p class="footnote">Vale já aplicado no próximo passo</p>';},
 
 venda:function(){var c=S.combo;function cb(id,seal,n,sub,full,pp,tot){return '<button class="combo'+(c===id?' hot':'')+'" onclick="qzSelCombo(\''+id+'\')"><span class="radio"></span><div class="cinfo"><span class="cseal">'+seal+'</span><b>'+n+'</b><span>'+sub+'</span></div><div class="cprice"><small class="strike">de '+full+'</small><b>'+pp+'</b><span>por pessoa</span><small>total '+tot+'</small></div></button>';}return '<div class="topbar"><span class="brand"><i class="ti ti-ticket"></i> Garantir ingresso</span></div>'+
@@ -407,10 +411,10 @@ promo:function(){setTimeout(startTimer,60);return '<div style="position:relative
 function bartopR(){return '<div class="topbar"><span class="brand"><i class="ti '+ARCH[S.archetype].ic+'"></i> '+ARCH[S.archetype].label+'</span></div>';}
 
 function render(){document.getElementById('content').innerHTML='<div class="fade">'+V[S.screen]()+'</div>';var bg=document.querySelector('.bg'),sc=document.querySelector('.scrim');var c='bg';if(S.screen==='t12')c+=' gift';else if(S.screen==='promo')c+=' flash';else if(S.screen==='analisando'||S.screen==='t11'||S.screen==='t8'||S.screen==='t9')c+=' soft';else if(S.screen==='venda'||S.screen==='t10'||S.screen==='t10b'||S.screen==='t11b'||S.screen==='t11map')c+=' dark';if(bg)bg.className=c;if(sc)sc.style.display=(S.screen==='promo')?'none':'block';}
-function runLoads(){var ld=document.querySelectorAll('.load');var bar2=document.getElementById('tbar2');var n=ld.length;var i=0;(function step(){if(i>0){ld[i-1].className='load on';ld[i-1].querySelector('.lc').innerHTML='<i class="ti ti-check"></i>';}if(bar2)bar2.style.width=Math.round(i/n*82)+'%';if(i<n){ld[i].className='load run';i++;setTimeout(step,1000);}else{setTimeout(function(){if(bar2)bar2.style.width='100%';setTimeout(function(){qzGo('t8');},1100);},500);}})();}
+function runLoads(){var ld=document.querySelectorAll('.load');var bar2=document.getElementById('tbar2');var n=ld.length;var i=0;(function step(){if(i>0){ld[i-1].className='load on';ld[i-1].querySelector('.lc').innerHTML='<i class="ti ti-check"></i>';}if(bar2)bar2.style.width=Math.round(i/n*82)+'%';if(i<n){ld[i].className='load run';i++;setTimeout(step,900);}else{setTimeout(function(){if(bar2)bar2.style.width='100%';setTimeout(function(){qzGo('t8');},1100);},500);}})();}
 function topics(){var des={contador:'sair com história pra contar',plateia:'rir até doer, sem segurar',fujao:'fazer algo diferente, fugir do automático',conector:'curtir junto com quem você gosta'}[S.archetype];var prv={video:'vendo um corte do show antes',indicacao:'pela indicação de quem já foi',lota_casa:'quando vê que o lugar lota',premio:'por nome com bagagem e reconhecimento'}[S.prova];var obj={preco:'sentir que valeu cada real',nao_conheco:'souber quem vai estar no palco',companhia:'for pra dividir com a galera',tempo:'o programa valer a saída'}[S.objecao];var rows=[['ti-star','Você quer',des],['ti-thumb-up','Você se convence',prv],['ti-alert-circle','Você só topa se',obj]];return rows.map(function(r){return '<div class="topic"><span class="tic"><i class="ti '+r[0]+'"></i></span><span><b>'+r[1]+'</b> '+r[2]+'</span></div>';}).join('');}
 var tmr=null;
-function deps(){var d=[['Trabalho na rádio aqui de Limeira e fui pelo anúncio. Nunca vi alguém precisar de socorro pra sair do show porque engasgou de tanto rir kkkkkk, que bom a senhorinha ta bem! Caio, você é um absurdo, volta mais vezes!','Marina','dep1.mp4'],['Eu mostrava as piadas pelo reels e minha namorada não achava graça nenhuma. Convenci ela a ir ao vivo pra ver a diferença.. agora é ELA que me chama pra ir kkkkkkkkkkk. Recomendo pra quem viu o show do Caio.','Lucas','dep3.mp4'],['Quase não fui nesse show, os ultimos que fui de outros caras só tinha piada de política e mimimi, sem graça. O que me convenceu foi a Plateia Viva, quem tava na minha frente virou parte do show inteiro kkkk. Ainda bem que eu estava no canto escondido. Vou levar a galera no próximo!','Rômulo','dep4.mp4'],['Caio, que Deus te abençoe. Eu não saía de casa desde que meu companheiro, que era meu marido, faleceu, nem sabia o que era stand-up. Ri como fazia anos que eu não ria, nunca me senti tão viva. Você é uma benção.','Dona Cleusa','dep2.mp4']];return d.map(function(x){var m=x[2]?'<video src="img/'+x[2]+'" autoplay loop muted playsinline></video>':'<i class="ti ti-player-play"></i>';return '<div class="dep"><div class="depimg">'+m+'</div><div class="depc"><span class="st">★★★★★</span><p>"'+x[0]+'"</p><div class="depf"><b>— '+x[1]+'</b><span class="verif"><i class="ti ti-circle-check"></i> Verificado</span></div></div></div>';}).join('');}
+function deps(){var d=[['Trabalho na rádio aqui de Limeira e fui pelo anúncio. Nunca vi alguém precisar de socorro pra sair do show porque engasgou de tanto rir kkkkkk, que bom a senhorinha ta bem! Caio, você é um absurdo, volta mais vezes!','Marina','dep1.mp4'],['Eu mostrava as piadas pelo reels e minha namorada não achava graça nenhuma. Convenci ela a ir ao vivo pra ver a diferença.. agora é ELA que me chama pra ir kkkkkkkkkkk. Recomendo ir no show do Caio.','Lucas','dep3.mp4'],['Quase não fui nesse show, os ultimos que fui de outros caras só tinha piada de política e mimimi, sem graça. O que me convenceu foi a Plateia Viva, quem tava na minha frente virou parte do show inteiro kkkk. Ainda bem que eu estava no canto escondido. Vou levar a galera no próximo!','Rômulo','dep4.mp4'],['Caio, que Deus te abençoe. Eu não saía de casa desde que meu companheiro, que era meu marido, faleceu, nem sabia o que era stand-up. Ri como fazia anos que eu não ria, nunca me senti tão viva. Você é uma benção.','Dona Cleusa','dep2.mp4']];return d.map(function(x){var m=x[2]?'<video src="img/'+x[2]+'" autoplay loop muted playsinline></video>':'<i class="ti ti-player-play"></i>';return '<div class="dep"><div class="depimg">'+m+'</div><div class="depc"><span class="st">★★★★★</span><p>"'+x[0]+'"</p><div class="depf"><b>— '+x[1]+'</b><span class="verif"><i class="ti ti-circle-check"></i> Verificado</span></div></div></div>';}).join('');}
 function startTimer(){var s=7200;function fmt(x){var h=Math.floor(x/3600),m=Math.floor((x%3600)/60),c=x%60;return (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(c<10?'0':'')+c;}var el=document.getElementById('timer');if(el)el.textContent=fmt(s);if(tmr)clearInterval(tmr);tmr=setInterval(function(){s--;var e=document.getElementById('timer');if(!e){clearInterval(tmr);return;}e.textContent=fmt(s);if(s<=0)clearInterval(tmr);},1000);}
 function confetti(){var cols=['#ffd36e','#ff8ab8','#8fc7ff','#9be59b','#ffb04d','#c9a0ff'];var s='';for(var i=0;i<16;i++){s+='<i style="left:'+Math.round(Math.random()*100)+'%;background:'+cols[i%6]+';animation-delay:'+(Math.random()*0.35).toFixed(2)+'s"></i>';}return s;}
 window.qzSelCombo=function(id){S.combo=id;render();};
