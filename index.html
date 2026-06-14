@@ -74,6 +74,16 @@
   .vs .col.good span{display:flex;gap:6px;color:#fff}
   .vs .col.good span i{color:#ffc56b;font-size:13px;margin-top:1px;flex:none}
   .vs .sep{display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-weight:800;font-size:11px;letter-spacing:.1em}
+  .trail{position:relative;margin:18px 0 4px;padding-left:2px}
+  .trail::before{content:'';position:absolute;left:23px;top:30px;bottom:30px;border-left:2px dashed rgba(255,196,107,.45)}
+  .stop{display:flex;gap:13px;margin-bottom:13px;position:relative;align-items:flex-start}
+  .stop .sdot{width:48px;height:48px;flex:none;border-radius:50%;background:linear-gradient(180deg,#ff9e4d,#ff7e2d);display:flex;align-items:center;justify-content:center;color:#2a1206;font-size:22px;box-shadow:0 8px 16px -8px rgba(255,126,45,.65);z-index:1;border:3px solid #160a12}
+  .stop .stopcard{flex:1;background:rgba(18,8,14,.7);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 13px;color:#fff}
+  .stop .stopcard b{display:block;color:#ffc56b;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+  .stop .stopcard p{font-size:14px;line-height:1.4;margin:0;color:rgba(255,255,255,.92)}
+  .stop.last .sdot{background:linear-gradient(180deg,#7be0a3,#3fb87a);color:#0a3b1a}
+  .stop.last .stopcard b{color:#7be0a3}
+  .stop.last .stopcard{border-color:rgba(123,224,163,.4);background:rgba(20,40,28,.55)}
   .logos{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
   .logo{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:rgba(255,255,255,.85)}
   .timer{font-family:'Anton',sans-serif;font-size:48px;color:#fff;text-align:center;letter-spacing:3px;margin:16px 0 2px;text-shadow:0 2px 16px rgba(0,0,0,.5)}
@@ -332,6 +342,22 @@ t11:function(){return bartopR()+
  '<p class="rtxt" style="color:#ffc56b;font-weight:700;margin:18px 0 8px">Caio Morelli já foi presença em</p>'+
  '<div class="logos"><span class="logo">Record</span><span class="logo">Rodrigo Faro</span><span class="logo">Pânico</span><span class="logo">+ TROCAR logos</span></div>'+
  '<div class="spacer"></div>'+
+ '<button class="cta" onclick="qzGo(\'t11map\')">Continuar <i class="ti ti-arrow-right"></i></button>';},
+
+t11map:function(){var stops=[
+  ['ti-glass-full','19h · O esquenta','Bar abre, você chega com a galera e aproveita as bebidas trincando, geladinhas'],
+  ['ti-microphone-2','20h · Começa o show','As luzes baixam e começa: Em Busca do Match Perfeito'],
+  ['ti-users','21h · Começa o quadro Plateia Viva','Pessoas da plateia viram personagem da noite — histórias que só acontecem lá'],
+  ['ti-lock','21h30 · Momento Secreto','Piadas e momentos criados na hora — só estando lá pra saber qual é'],
+  ['ti-gift','22h · Sorteio de brindes','Baldinhos de cerveja, porções e brindes — só pra quem está lá'],
+  ['ti-camera','22h30 · Encerramento','Em Busca do Match Perfeito termina, fotos com a galera — e a casa continua aberta'],
+  ['ti-message-circle','+1 semana · As piadas internas começam','O grupo do WhatsApp da galera explode com referências de tudo que rolou no show']
+];return '<div class="topbar"><span class="brand"><i class="ti ti-map-2"></i> Mapa da sua noite</span></div>'+
+ '<div style="margin-top:10px"></div>'+
+ '<h1 class="big" style="font-size:30px;margin:0;line-height:1.05">A noite que vai<br>virar história</h1>'+
+ '<p class="rtxt" style="color:rgba(255,255,255,.72);margin:10px 0 0">Do esquenta até as piadas que vão ficar a semana inteira no grupo do WhatsApp.</p>'+
+ '<div class="trail">'+stops.map(function(s,i){var last=(i===stops.length-1)?' last':'';return '<div class="stop'+last+'"><div class="sdot"><i class="ti '+s[0]+'"></i></div><div class="stopcard"><b>'+s[1]+'</b><p>'+s[2]+'</p></div></div>';}).join('')+'</div>'+
+ '<div class="spacer"></div>'+
  '<button class="cta" onclick="qzGo(\'t11b\')">Continuar <i class="ti ti-arrow-right"></i></button>';},
 
 t11b:function(){return bartopR()+
@@ -380,7 +406,7 @@ promo:function(){setTimeout(startTimer,60);return '<div style="position:relative
 };
 function bartopR(){return '<div class="topbar"><span class="brand"><i class="ti '+ARCH[S.archetype].ic+'"></i> '+ARCH[S.archetype].label+'</span></div>';}
 
-function render(){document.getElementById('content').innerHTML='<div class="fade">'+V[S.screen]()+'</div>';var bg=document.querySelector('.bg'),sc=document.querySelector('.scrim');var c='bg';if(S.screen==='t12')c+=' gift';else if(S.screen==='promo')c+=' flash';else if(S.screen==='analisando'||S.screen==='t11'||S.screen==='t8'||S.screen==='t9')c+=' soft';else if(S.screen==='venda'||S.screen==='t10'||S.screen==='t10b'||S.screen==='t11b')c+=' dark';if(bg)bg.className=c;if(sc)sc.style.display=(S.screen==='promo')?'none':'block';}
+function render(){document.getElementById('content').innerHTML='<div class="fade">'+V[S.screen]()+'</div>';var bg=document.querySelector('.bg'),sc=document.querySelector('.scrim');var c='bg';if(S.screen==='t12')c+=' gift';else if(S.screen==='promo')c+=' flash';else if(S.screen==='analisando'||S.screen==='t11'||S.screen==='t8'||S.screen==='t9')c+=' soft';else if(S.screen==='venda'||S.screen==='t10'||S.screen==='t10b'||S.screen==='t11b'||S.screen==='t11map')c+=' dark';if(bg)bg.className=c;if(sc)sc.style.display=(S.screen==='promo')?'none':'block';}
 function runLoads(){var ld=document.querySelectorAll('.load');var bar2=document.getElementById('tbar2');var n=ld.length;var i=0;(function step(){if(i>0){ld[i-1].className='load on';ld[i-1].querySelector('.lc').innerHTML='<i class="ti ti-check"></i>';}if(bar2)bar2.style.width=Math.round(i/n*82)+'%';if(i<n){ld[i].className='load run';i++;setTimeout(step,1000);}else{setTimeout(function(){if(bar2)bar2.style.width='100%';setTimeout(function(){qzGo('t8');},1100);},500);}})();}
 function topics(){var des={contador:'sair com história pra contar',plateia:'rir até doer, sem segurar',fujao:'fazer algo diferente, fugir do automático',conector:'curtir junto com quem você gosta'}[S.archetype];var prv={video:'vendo um corte do show antes',indicacao:'pela indicação de quem já foi',lota_casa:'quando vê que o lugar lota',premio:'por nome com bagagem e reconhecimento'}[S.prova];var obj={preco:'sentir que valeu cada real',nao_conheco:'souber quem vai estar no palco',companhia:'for pra dividir com a galera',tempo:'o programa valer a saída'}[S.objecao];var rows=[['ti-star','Você quer',des],['ti-thumb-up','Você se convence',prv],['ti-alert-circle','Você só topa se',obj]];return rows.map(function(r){return '<div class="topic"><span class="tic"><i class="ti '+r[0]+'"></i></span><span><b>'+r[1]+'</b> '+r[2]+'</span></div>';}).join('');}
 var tmr=null;
