@@ -166,7 +166,7 @@
   @keyframes ticketIn{0%{opacity:0;transform:translateY(-12px) rotate(-6deg) scale(.85)}65%{transform:translateY(2px) rotate(2deg) scale(1.02)}100%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}}
   .ticketwrap{text-align:center;margin:8px 0 14px}
   .ticketwrap p{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 6px;font-weight:700}
-  .ticketwrap img{height:120px;width:auto;border-radius:6px;box-shadow:0 16px 30px -14px rgba(255,150,180,.45),0 0 0 1px rgba(255,255,255,.06);animation:ticketIn .65s cubic-bezier(.4,1.4,.5,1) both}
+  .ticketwrap img{height:200px;width:auto;display:block;margin:0 auto;filter:drop-shadow(0 16px 28px rgba(255,150,180,.35));animation:ticketIn .7s cubic-bezier(.4,1.35,.5,1) both}
   @keyframes blinkDot{0%,49%{opacity:1}50%,100%{opacity:.15}}
   @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @keyframes ringSpin{to{transform:rotate(360deg)}}
@@ -387,7 +387,7 @@ t12:function(){return brand()+
  '<p class="footnote">Vale já aplicado no próximo passo</p>';},
 
 venda:function(){var c=S.combo;function cb(id,seal,n,sub,full,pp,tot){return '<button class="combo'+(c===id?' hot':'')+'" onclick="qzSelCombo(\''+id+'\')"><span class="radio"></span><div class="cinfo"><span class="cseal">'+seal+'</span><b>'+n+'</b><span>'+sub+'</span></div><div class="cprice"><small class="strike">de '+full+'</small><b>'+pp+'</b><span>por pessoa</span><small>total '+tot+'</small></div></button>';}return '<div class="topbar"><span class="brand"><i class="ti ti-ticket"></i> Garantir ingresso</span></div>'+
- '<div class="ticketwrap"><p>Seu ingresso</p><img src="img/ticket.jpg" alt="Em Busca do Match Perfeito"></div>'+
+ '<div class="ticketwrap"><img src="img/ticket.png" alt="Em Busca do Match Perfeito"></div>'+
  '<h1 class="big" style="font-size:24px;margin-top:4px;line-height:1.05">Em Busca do Match Perfeito</h1>'+
  '<p class="rtxt" style="margin-bottom:10px;font-size:13.5px">por <b>Caio Morelli</b></p>'+
  '<div class="when"><i class="ti ti-calendar-event"></i><div><b>08 de junho · segunda · 20h</b><span>Pimenta Bar · São Carlos / SP · 16+</span></div></div>'+
@@ -399,7 +399,7 @@ venda:function(){var c=S.combo;function cb(id,seal,n,sub,full,pp,tot){return '<b
  '<div class="spacer"></div>'+
  '<button class="cta" onclick="qzGo(\'promo\')">Quero garantir meu ingresso com desconto agora <i class="ti ti-arrow-right"></i></button>'+
  '<p class="footnote" style="display:block;text-align:center;line-height:1.45">Tocou e não aconteceu nada? Os ingressos deste espetáculo podem já ter esgotado — pedimos desculpas.</p>'+
- '<button class="ghost" onclick="qzReset()">↺ Refazer o quiz</button>';},
+ '';},
 
 promo:function(){setTimeout(startTimer,60);return '<div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;color:#2a0f06">'+
  '<div class="flashbg"></div>'+
